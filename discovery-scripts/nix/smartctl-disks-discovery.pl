@@ -63,6 +63,8 @@ else {
         #"/dev/bus/0 -d megaraid,01" for megaraid
         #"# /dev/sdc -d usbjmicron # /dev/sdc [USB JMicron], ATA device open "
 
+        next if $line =~ /jmicron/i;  # Skip USB attached disks
+
         my ($disk_name) = $line =~ /(\/(.+?))(?:$|\s)/;
         my ($disk_args) = $line =~ /(-d [A-Za-z0-9,\+]+)/;
 
